@@ -3,7 +3,7 @@ def get_reply(message_text: str) -> str:
     text = " ".join(message_text.lower().split())
     text = text.strip("!?.,:; ")
 
-    # HOL-AHVAL — birinchi tekshiriladi
+    # HOL-AHVAL
     if any(x in text for x in (
         "qalaysiz", "qalesiz", "qalay", "yaxshimisiz",
         "ishlar qalay", "ahvolingiz"
@@ -34,6 +34,11 @@ def get_reply(message_text: str) -> str:
         return "Zo'r-ku! 😊 Kayfiyatingiz doim shunday bo'lsin!"
 
     # RAHMAT
+    if any(x in text for x in (
+        "rahmat sizga", "katta rahmat"
+    )):
+        return "Doim xizmatingizga tayyorman! 🤝"
+
     if any(x in text for x in (
         "rahmat", "raxmat", "tashakkur"
     )):
@@ -66,10 +71,6 @@ def get_reply(message_text: str) -> str:
     )):
         return "Ha, hammasi tinch 😊 Sizda-chi?"
 
-    if any(x in text for x in (
-        "rahmat sizga", "katta rahmat"
-    )):
-        return "Doim xizmatingizga tayyorman! 🤝"
-
     # BOSHQA XABARLAR
     return "Xabaringizni oldim 😊 Yana nima haqida suhbatlashamiz?"
+
